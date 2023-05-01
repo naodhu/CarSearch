@@ -1,8 +1,12 @@
+// password = UrL6JiniLqODmmVD
 import mongoose from "mongoose";
 
 const connectDB = async () => {
   try {
-    await mongoose.connect("mongodb://localhost:27017/car-app-search", {
+    // Replace <password> with your actual password and remove the MONGODB_URI import from the top
+    const connectionString = "mongodb+srv://admin:UrL6JiniLqODmmVD@cluster0.xqebfug.mongodb.net/?retryWrites=true&w=majority";
+
+    await mongoose.connect(connectionString, {
       useNewUrlParser: true,
       useUnifiedTopology: true,
     });
@@ -15,3 +19,4 @@ const connectDB = async () => {
 };
 
 export { connectDB };
+

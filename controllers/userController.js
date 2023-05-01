@@ -34,10 +34,14 @@ export const register = async (req, res) => {
 export const login = async (req, res) => {
   const { email, password } = req.body;
 
-  const user = await User.findOne({ email });
+  console.log("Email:", email, "Password:", password);
+
+  const user = await User.findOne({ email }).select("+password");
   if (!user) {
     return res.status(404).json({ message: "User not found" });
   }
+
+  console.log("User:", user);
 
   const isMatch = await bcrypt.compare(password, user.password);
   if (!isMatch) {

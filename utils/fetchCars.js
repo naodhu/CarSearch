@@ -4,7 +4,7 @@ import fetch from "node-fetch";
 import { BACK4APP_API } from "../config/config.js";
 import Car from "../models/Car.js";
 
-connectDB(MONGODB_URI)
+connectDB()
   .then(() => {
     console.log("Database connected");
   })
